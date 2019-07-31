@@ -59,7 +59,7 @@ https://medium.com/@yvsajay/understanding-churn-in-music-streaming-platform-usin
 1. Churn
 
 ## Summary of Analysis
-##### Discussion on Models and their Results
+### Discussion on Models and their Results
 We see that our best model in term’s of our agreed upon metric F1 score is Support Vector Classifier. We have achieved 82% accuracy and 57% F1 score on the test data post hyperparameter tuning and cross validation
 ![sparkify_models](sparkify_models.png)
 
@@ -71,7 +71,7 @@ Random Forests, without hyperparameter tuning got zero Precision and Recall (bec
 
 Gradient Boosting Trees has remained at an F1 score of 19% with or without tuning implying that the default parameters have been the best for this dataset. The best model has maxDepth 5, maxIter 50, and stepSize 0.1
 
-##### Discussion on Features and their importances
+### Discussion on Features and their importances
 ![sparkify_features](sparkify_features.png)
 
 The dominant features remained consistent across models.
