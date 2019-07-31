@@ -17,9 +17,9 @@
 - [Acknowledgements](#acknowledgements)
 
 ## Project Motivation
->This project has been done as a Capstone project for the Udacity Data Scientist Nanodegree program. All data has been provided by Udacity, and is done to strengthen and display understanding of Pyspark, a Python programming interface for Apache Spark. Sparkify company in discussion here is a fictitious music streaming company. The project is later used to convey the results using a Blog post.It can be found [here](https://medium.com/@yvsajay/understanding-churn-in-music-streaming-platform-using-pyspark-a-detailed-analysis-8059ce3195b5?source=friends_link&sk=b3f16920c9fe9e434ba068ef3de20bca)
+*This project has been done as a Capstone project for the Udacity Data Scientist Nanodegree program. All data has been provided by Udacity, and is done to strengthen and display understanding of Pyspark, a Python programming interface for Apache Spark. Sparkify company in discussion here is a fictitious music streaming company. The project is later used to convey the results using a Blog post.It can be found [here](https://medium.com/@yvsajay/understanding-churn-in-music-streaming-platform-using-pyspark-a-detailed-analysis-8059ce3195b5?source=friends_link&sk=b3f16920c9fe9e434ba068ef3de20bca)
 
->In this project, we will see how we can access huge data sets that lie across clusters using Spark via Python. The Pyspark package will help us do that. We will however work with a mini sample for this project whilst keeping in mind that the code can be used on the whole dataset as well. The results should remain the same for larger datasets too.
+*In this project, we will see how we can access huge data sets that lie across clusters using Spark via Python. The Pyspark package will help us do that. We will however work with a mini sample for this project whilst keeping in mind that the code can be used on the whole dataset as well. The results should remain the same for larger datasets too.
 
 ## Objective
 Our aim is to understand the data, see the trends, use ML algorithms to determine who amongst the current users will more likely churn so that we can try different techniques to retain them even before they try to churn.
