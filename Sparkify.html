@@ -13160,7 +13160,7 @@ We intend to use Spark via python (Pyspark) on this project and use its many fea
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[108]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#import required libraries</span>
@@ -13168,7 +13168,8 @@ We intend to use Spark via python (Pyspark) on this project and use its many fea
 
 <span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="k">import</span> <span class="n">SparkSession</span>
 <span class="kn">from</span> <span class="nn">pyspark.sql.types</span> <span class="k">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="k">import</span> <span class="n">avg</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">concat</span><span class="p">,</span> <span class="n">isnull</span><span class="p">,</span> <span class="n">desc</span><span class="p">,</span> <span class="n">explode</span><span class="p">,</span> <span class="n">lit</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="n">split</span><span class="p">,</span> <span class="n">udf</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="nb">round</span><span class="p">,</span> <span class="n">when</span><span class="p">,</span> <span class="n">lag</span><span class="p">,</span> <span class="n">dense_rank</span><span class="p">,</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">floor</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="k">import</span> <span class="n">avg</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">concat</span><span class="p">,</span> <span class="n">isnull</span><span class="p">,</span> <span class="n">desc</span><span class="p">,</span> <span class="n">explode</span><span class="p">,</span> <span class="n">lit</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="n">split</span><span class="p">,</span> <span class="n">udf</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> \
+                                    <span class="nb">round</span><span class="p">,</span> <span class="n">when</span><span class="p">,</span> <span class="n">lag</span><span class="p">,</span> <span class="n">dense_rank</span><span class="p">,</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">floor</span>
 <span class="kn">from</span> <span class="nn">pyspark.sql.types</span> <span class="k">import</span> <span class="n">IntegerType</span><span class="p">,</span> <span class="n">StructType</span><span class="p">,</span> <span class="n">StringType</span><span class="p">,</span> <span class="n">DoubleType</span><span class="p">,</span> <span class="n">StructField</span>
 <span class="kn">from</span> <span class="nn">pyspark.sql.window</span> <span class="k">import</span> <span class="n">Window</span>
 
@@ -13176,7 +13177,8 @@ We intend to use Spark via python (Pyspark) on this project and use its many fea
 <span class="kn">from</span> <span class="nn">pyspark.ml.classification</span> <span class="k">import</span> <span class="n">LogisticRegression</span><span class="p">,</span> <span class="n">GBTClassifier</span><span class="p">,</span> <span class="n">RandomForestClassifier</span><span class="p">,</span><span class="n">LinearSVC</span>
 <span class="kn">from</span> <span class="nn">pyspark.ml.evaluation</span> <span class="k">import</span> <span class="n">BinaryClassificationEvaluator</span><span class="p">,</span> <span class="n">MulticlassClassificationEvaluator</span>
 <span class="kn">from</span> <span class="nn">pyspark.mllib.evaluation</span> <span class="k">import</span> <span class="n">BinaryClassificationMetrics</span>
-<span class="kn">from</span> <span class="nn">pyspark.ml.feature</span> <span class="k">import</span> <span class="n">CountVectorizer</span><span class="p">,</span> <span class="n">IDF</span><span class="p">,</span> <span class="n">Normalizer</span><span class="p">,</span> <span class="n">PCA</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">VectorAssembler</span><span class="p">,</span> <span class="n">StringIndexer</span><span class="p">,</span> <span class="n">IndexToString</span>
+<span class="kn">from</span> <span class="nn">pyspark.ml.feature</span> <span class="k">import</span> <span class="n">CountVectorizer</span><span class="p">,</span> <span class="n">IDF</span><span class="p">,</span> <span class="n">Normalizer</span><span class="p">,</span> <span class="n">PCA</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">VectorAssembler</span><span class="p">,</span> \
+                                <span class="n">StringIndexer</span><span class="p">,</span> <span class="n">IndexToString</span>
 <span class="kn">from</span> <span class="nn">pyspark.ml.regression</span> <span class="k">import</span> <span class="n">LinearRegression</span>
 <span class="kn">from</span> <span class="nn">pyspark.ml.tuning</span> <span class="k">import</span> <span class="n">CrossValidator</span><span class="p">,</span> <span class="n">ParamGridBuilder</span>
 
@@ -13196,7 +13198,7 @@ We intend to use Spark via python (Pyspark) on this project and use its many fea
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span> \
@@ -13220,7 +13222,7 @@ We intend to use Spark via python (Pyspark) on this project and use its many fea
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="s1">&#39;mini_sparkify_event_data.json&#39;</span><span class="p">)</span>
@@ -13231,10 +13233,68 @@ We intend to use Spark via python (Pyspark) on this project and use its many fea
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>DataFrame[artist: string, auth: string, firstName: string, gender: string, itemInSession: bigint, lastName: string, length: double, level: string, location: string, method: string, page: string, registration: bigint, sessionId: bigint, song: string, status: bigint, ts: bigint, userAgent: string, userId: string]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>+----------------+---------+---------+------+-------------+--------+---------+-----+--------------------+------+--------+-------------+---------+---------+------+-------------+--------------------+------+
+|          artist|     auth|firstName|gender|itemInSession|lastName|   length|level|            location|method|    page| registration|sessionId|     song|status|           ts|           userAgent|userId|
++----------------+---------+---------+------+-------------+--------+---------+-----+--------------------+------+--------+-------------+---------+---------+------+-------------+--------------------+------+
+|  Martha Tilston|Logged In|    Colin|     M|           50| Freeman|277.89016| paid|     Bakersfield, CA|   PUT|NextSong|1538173362000|       29|Rockpools|   200|1538352117000|Mozilla/5.0 (Wind...|    30|
+|Five Iron Frenzy|Logged In|    Micah|     M|           79|    Long|236.09424| free|Boston-Cambridge-...|   PUT|NextSong|1538331630000|        8|   Canada|   200|1538352180000|&#34;Mozilla/5.0 (Win...|     9|
++----------------+---------+---------+------+-------------+--------+---------+-----+--------------------+------+--------+-------------+---------+---------+------+-------------+--------------------+------+
+only showing top 2 rows
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
@@ -13250,7 +13310,7 @@ We intend to use Spark via python (Pyspark) on this project and use its many fea
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -13368,7 +13428,7 @@ We intend to use Spark via python (Pyspark) on this project and use its many fea
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#remove blank userIds which are probably users who did not register</span>
@@ -13377,6 +13437,26 @@ We intend to use Spark via python (Pyspark) on this project and use its many fea
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>278154</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
